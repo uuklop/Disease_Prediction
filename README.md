@@ -13,24 +13,85 @@ A small Django web app that demonstrates disease prediction and basic doctor/pat
 
 ![Home](/screenshots/Capture1.PNG)
 
-![Prediction](/screenshots/Capture2.PNG)
+[//]: # (Main README for the Disease Prediction project)
 
-![Chat / Consultation](/screenshots/Capture3.PNG)
+# Disease Prediction (Django + ML)
 
-(If images don't display on GitHub, ensure they are committed in the `screenshots/` folder.)
+A Django web application that demonstrates disease prediction and drug recommendation using pretrained scikit-learn models and a small suite of Django apps for doctor/patient workflows.
+
+## Quick overview
+
+- Django backend with multiple apps: `accounts`, `chats`, `drug_recommendation`, `main_app`.
+- Pretrained ML artifacts included: `medical_model.pkl`, `medical_nb.pkl` and a `trained_model/` directory.
+- UI assets and screenshots live in `templates/`, `pics/`, and `screenshots/`.
+
+## Seminar paper — key points (summary)
+The repository contains a companion seminar paper ("Seminar Paper.pdf", author: James Polkuu) that documents the research and experiments behind the models. Vital takeaways below.
+
+- Abstract: The paper evaluates multiple machine learning classifiers (Decision Tree, Logistic Regression, Random Forest, XGBoost, SVM, Naive Bayes) for disease prediction and drug recommendation. Results show these models can deliver high accuracy and useful recommendations when trained on curated medical records.
+
+- Datasets:
+	- Disease dataset: each CSV has 133 columns (132 symptom columns + 1 prognosis column). Symptoms map to 42 disease classes.
+	- Drug dataset: columns include age, disease, gender, and drug; includes mappings from diseases to prescribed drugs (4955 drug records covering 9 diseases in the dataset used by the authors).
+
+- Methods: The study trains and compares Decision Tree, Logistic Regression, Random Forest, XGBoost, Support Vector Machine, and Naive Bayes classifiers. Models were evaluated with standard classification metrics (accuracy, precision, recall, F1-score).
+
+- Results: Reported experiments indicate high accuracy and strong precision/recall across the tested models, supporting the feasibility of automated disease prediction and drug recommendation from structured symptom records.
+
+- Recommendation & notes: The paper recommends integrating such a system into clinical workflows with care for data privacy, model interpretability, and ethical considerations. Authors advise further work on additional algorithms and deployment safeguards.
 
 ## What you'll find in this repository
 
 - `manage.py` — Django management script
-- `disease_prediction/` — project settings and wsgi
+# Disease Prediction (Django + ML)
+
+A Django web application that demonstrates disease prediction and drug recommendation using pretrained scikit-learn models and a small suite of Django apps for doctor/patient workflows.
+
+## Quick overview
+
+- Django backend with multiple apps: `accounts`, `chats`, `drug_recommendation`, `main_app`.
+- Pretrained ML artifacts included: `medical_model.pkl`, `medical_nb.pkl` and a `trained_model/` directory.
+- UI assets and screenshots live in `templates/`, `pics/`, and `screenshots/`.
+
+## Seminar paper — key points (summary)
+The repository contains a companion seminar paper ("Seminar Paper.pdf", author: James Polkuu) that documents the research and experiments behind the models. Vital takeaways below.
+
+- Abstract: The paper evaluates multiple machine learning classifiers (Decision Tree, Logistic Regression, Random Forest, XGBoost, SVM, Naive Bayes) for disease prediction and drug recommendation. Results show these models can deliver high accuracy and useful recommendations when trained on curated medical records.
+
+- Datasets:
+	- Disease dataset: each CSV has 133 columns (132 symptom columns + 1 prognosis column). Symptoms map to 42 disease classes.
+	- Drug dataset: columns include age, disease, gender, and drug; includes mappings from diseases to prescribed drugs (4955 drug records covering 9 diseases in the dataset used by the authors).
+
+- Methods: The study trains and compares Decision Tree, Logistic Regression, Random Forest, XGBoost, Support Vector Machine, and Naive Bayes classifiers. Models were evaluated with standard classification metrics (accuracy, precision, recall, F1-score).
+
+- Results: Reported experiments indicate high accuracy and strong precision/recall across the tested models, supporting the feasibility of automated disease prediction and drug recommendation from structured symptom records.
+
+- Recommendation & notes: The paper recommends integrating such a system into clinical workflows with care for data privacy, model interpretability, and ethical considerations. Authors advise further work on additional algorithms and deployment safeguards.
+
+### Experiment/Dataset
+In order to assess the effectiveness of our proposed system, we employed a comprehensive dataset sourced from Kaggle, consisting of curated medical records.
+
+Disease Dataset
+The dataset consists of two CSV files: one for training and one for testing the model. Each file contains 133 columns, where 132 columns represent symptoms and the last column represents the prognosis. The symptoms are mapped to 42 diseases.
+
+Drug Dataset
+The drugs dataset consists of a single CSV file with 4 columns. Three columns represent age, disease, and gender, while the last column indicates the corresponding drug. A total of 9 diseases are mapped to 4955 drugs in this dataset.
+
+We apply Decision Tree, Logistic Regression, Random Forest, XGBoost, Support Vector Machine, and Naive Bayes algorithms.
+
+### Results
+Experimental results demonstrate the effectiveness of the employed machine learning algorithms for disease prediction and drug recommendation. The models achieve high accuracy, precision, recall, and F1-score, indicating their ability to identify diseases accurately.
+
+## What you'll find in this repository
+
+- `manage.py` — Django management script
+- `disease_prediction/` — project settings and WSGI
 - `accounts/`, `chats/`, `drug_recommendation/`, `main_app/` — Django apps
 - `requirements.txt` — pinned Python dependencies
 - `medical_model.pkl`, `medical_nb.pkl`, `trained_model/` — ML artifacts
 - `db.sqlite3` — example SQLite DB (optional)
 
 ## Recommended workflow (local development)
-
-Pick one of the following database options:
 
 Option A — Quick start with SQLite (recommended for testing)
 
@@ -64,48 +125,25 @@ python manage.py runserver
 
 Navigate to http://127.0.0.1:8000/ and log in with the superuser.
 
-Option B — Use PostgreSQL (matches original `settings.py`)
+Option B — Use PostgreSQL (matches `disease_prediction/settings.py`)
 
-Install system deps (Ubuntu/Debian):
+Install system deps (Debian/Ubuntu):
 
 ```bash
 sudo apt update
 sudo apt install -y build-essential libpq-dev python3-dev postgresql postgresql-contrib
 ```
 
-Set the `postgres` user's password and create the database (adjust values as needed):
-
-```bash
-sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD 'uenr1206';"
-sudo -u postgres psql -c "CREATE DATABASE predico;"
-```
-
-Then follow steps to create a venv, install dependencies, run migrations and start the server (same as SQLite steps above).
+Create DB / user or update `DATABASES` in settings to match your environment.
 
 ## Important notes / security
 
-- `disease_prediction/settings.py` currently includes an email password and DEBUG=True. Remove secrets before publishing or move them to environment variables. Example using envvars in a shell or `.env` file (use `python-decouple` or `django-environ` for production).
-- Large binary model files (e.g. `medical_model.pkl`) can bloat Git history. Consider using Git LFS or a model hosting service if you want to keep them out of the main repo.
+- `disease_prediction/settings.py` currently contains hard-coded secrets (SECRET_KEY, email credentials, and a DB password) and `DEBUG = True`. Move secrets to environment variables before publishing or deploying.
+- Large model files (`*.pkl`) can bloat the repo. Consider Git LFS or external model storage for production.
 
-## Git steps to push to GitHub
+## Git / publishing notes
 
-1. Initialize and commit locally (if not already a git repo):
-
-```bash
-git init
-git add .
-git commit -m "Initial commit - Disease prediction Django app"
-```
-
-2. Create a repo on GitHub (via website) and add it as remote (example):
-
-```bash
-git remote add origin https://github.com/<your-username>/<repo-name>.git
-git branch -M main
-git push -u origin main
-```
-
-If files like model pickles are large, follow GitHub's guidance for Git LFS:
+- If you add large binaries, use Git LFS:
 
 ```bash
 git lfs install
@@ -118,29 +156,19 @@ git push
 
 ## Troubleshooting
 
-- If `pip install -r requirements.txt` fails on `psycopg2`, install `libpq-dev` and Python dev headers (see PostgreSQL step).
-- If static files look incorrect, run `python manage.py collectstatic` (not necessary for dev server with DEBUG=True).
+- If `pip install -r requirements.txt` fails on `psycopg2`, install `libpq-dev` and Python headers (see PostgreSQL step).
+- If static files look incorrect, run `python manage.py collectstatic` (not necessary for dev server when `DEBUG=True`).
 
 ## License
 
-This project includes an existing `LICENSE` file — review it before publishing.
+See `LICENSE` in the repository.
 
-## Contributing
+## Contributing ideas
 
-If you want, I can:
-- Create a cleaned `settings_example.py` that reads secrets from environment variables.
-- Add a short CONTRIBUTING.md with how to run tests and report issues.
-- Move heavy model files to Git LFS and add instructions.
+- Create a `settings_example.py` or refactor settings to use environment variables.
+- Add a small test that loads the pickled models and runs a smoke prediction to validate compatibility with pinned `scikit-learn`.
+- Add `.gitignore` entries for virtualenvs, IDE files, and large artifacts.
 
 ---
 
-If you'd like I can now:
-- Create/update a `.gitignore` to exclude virtualenvs and sensitive files and commit it.
-- Create `settings_example.py` and remove secrets from the committed `settings.py`.
-- Initialize git and push to a remote if you provide the remote URL.
-
-Tell me which next step to do.
-=======
-# Disease_Prediction
-A Django-based machine learning web app for disease prediction and drug recommendation using trained classification models.
->>>>>>> 29bbfbe0fd2e47468bf17879e7bf591f5b72f3bc
+_Seminar paper author: James Polkuu (file: `Seminar Paper.pdf`)._

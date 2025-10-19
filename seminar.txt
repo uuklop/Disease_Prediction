@@ -1,0 +1,95 @@
+Title: Disease Prediction and Drug Recommendation using Machine Learning: A Comprehensive
+
+Study
+
+
+
+
+Abstract:
+
+This paper explores the application of machine learning algorithms, including Decision Tree,
+
+Logistic Regression, Random Forest, XGBoost, Support Vector Machine, and Naive Bayes, for
+
+disease prediction and drug recommendation. Using a diverse dataset, we develop a system that
+
+accurately predicts diseases and recommends medications. Experimental results demonstrate the
+
+effectiveness of these algorithms in improving healthcare outcomes.
+
+
+
+
+Background:
+
+Machine learning and data analytics advancements have enabled innovative solutions in
+
+healthcare. Disease prediction and drug recommendation play vital roles in patient care and
+
+healthcare efficiency. Our research aims to automate disease prediction and assist healthcare
+
+professionals in making informed decisions using machine learning algorithms.
+
+
+
+
+Problem:
+
+This study addresses challenges in disease prediction, misdiagnosis, and wrong prescription.
+
+Accurate prediction is crucial, but misdiagnosis and wrong prescriptions can occur due to various
+
+factors. Advanced machine learning techniques are needed to improve accuracy, reduce
+
+misdiagnosis, and provide accurate drug recommendations.
+Experiment/Dataset:
+
+In order to assess the effectiveness of our proposed system, we employed a comprehensive dataset
+
+sourced from Kaggle, consisting of curated medical records.
+
+Disease Dataset
+
+The dataset consists of two CSV files: one for training and one for testing the model. Each file
+
+contains 133 columns, where 132 columns represent symptoms and the last column represents the
+
+prognosis. The symptoms are mapped to 42 diseases.
+
+Drug Dataset
+
+The drugs dataset consists of a single CSV file with 4 columns. Three columns represent age,
+
+disease, and gender, while the last column indicates the corresponding drug. A total of 9 diseases
+
+are mapped to 4955 drugs in this dataset.
+
+We apply Decision Tree, Logistic Regression, Random Forest, XGBoost, Support Vector Machine,
+
+and Naive Bayes algorithms.
+
+
+
+
+Results:
+
+Experimental results demonstrate the effectiveness of the employed machine learning algorithms
+
+for disease prediction and drug recommendation. The models achieve high accuracy, precision,
+
+recall, and F1-score, indicating their ability to identify diseases accurately.
+Results
+
+
+
+
+Recommendation:
+
+Integrating the disease prediction and drug recommendation system in healthcare institutions is
+
+recommended. This integration improves diagnoses, reduces errors, and enhances patient
+
+outcomes. Future research should explore additional algorithms and address ethical
+
+considerations, data privacy, and model interpretability.
+
