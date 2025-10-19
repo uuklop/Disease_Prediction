@@ -1,0 +1,26 @@
+{% extends 'drug_rec/base.html' %}
+
+
+
+{% block body %}
+    <h1>Patient Details</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Gender</th>
+                <th>Age</th>
+                <th>Disease</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for patient in patients %}
+                <tr>
+                    <td>{{ patient.gender }}</td>
+                    <td>{{ patient.age }}</td>
+                    <td>{{ patient.disease }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

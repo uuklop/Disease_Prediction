@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.env
+
+# Django
+staticfiles/
+media/
+db.sqlite3
+*.log
+
+# Editor files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+
+# Model artifacts (optional: consider Git LFS)
+*.pkl
+trained_model/
+
+# Ignore compiled files
+*.so
+
+# Git LFS attributes (if you choose to use LFS)
+.gitattributes

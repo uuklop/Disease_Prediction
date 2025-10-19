@@ -1,0 +1,260 @@
+﻿
+{% extends "basic.html" %}
+{% load static %}
+
+ 
+	{% block head %}
+
+
+{% endblock %}
+
+
+
+
+{% block body %}
+
+<div class="jumbotron jumbotron-fluid bg-dark mt-3">
+    <h1 class="display-6 text-center p-4 text-light">AI Assisted Healthcare</h1>
+    <hr style="width: 10%; border: 2px solid white;">
+
+    <p class="lead p-4 text-light text-center" >
+      A web app that uses AI to help users get instant guidance on their disease. Users share their symptoms and the system suggests possible illnesses and recommends contacting a doctor. Doctors can recommend Drugs backed by AI.
+    
+                
+  
+     {% comment %} {% if user.is_authenticated %}
+
+     
+     {% else %} {% endcomment %}
+     {% if not user.is_authenticated %}
+
+      <p class="lead">
+        <div class="d-flex justify-content-center">
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target=".bd-example-modal-lg">Get started</button>
+      </div>
+      
+      </p>
+    {% endif %}
+    
+
+</div>
+{% if not user.is_authenticated %}
+<br><br><br>
+<div class="container mt-5 mb-3" style="width:fit-content;">
+      <center>
+        <h1>Sign-In  As</h1>
+        </center>
+      
+      
+      <form>
+          <div class="container mt-5 mb-5">
+       <div class="row">
+          <div class="col">
+             <a href="{% url 'sign_in_admin' %}">
+      <img  alt="admin" src="{% static 'homepage/admin.png' %}"  class="img rounded-circle  border border-secondary">
+      </a>
+          </div>
+      
+          <div class="col">
+      <a href="{% url 'sign_in_doctor' %}">
+      <img  alt="doctor" src="{% static 'homepage/doctor.png' %}"  class="img rounded-circle  border border-secondary">
+      </a>
+          </div>
+      
+          <div class="col">
+      <a href="{% url 'sign_in_patient' %}">
+      <img  alt="patient" src="{% static 'homepage/patient.png' %}"  class="img rounded-circle border border-secondary">
+      </a>
+          </div>
+        </div>
+        </div>
+      </form>
+</div>
+{% endif %}
+
+    
+{% comment %} 
+    {% endif %} {% endcomment %}
+
+<br><br>
+
+
+
+
+<!-- Large modal -->
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+  
+<center>
+  <h1>Sign-In  As</h1>
+  </center>
+<br><br>
+
+<center>
+<form>
+    <div class="container mt-5 mb-5">
+ <div class="row">
+    <div class="col">
+       <a href="{% url 'sign_in_admin' %}">
+<img  alt="admin" src="{% static 'homepage/admin.png' %}"  class="img">
+</a>
+    </div>
+
+    <div class="col">
+<a href="{% url 'sign_in_doctor' %}">
+<img  alt="doctor" src="{% static 'homepage/doctor.png' %}"  class="img">
+</a>
+    </div>
+
+    <div class="col">
+<a href="{% url 'sign_in_patient' %}">
+<img  alt="patient" src="{% static 'homepage/patient.png' %}"  class="img">
+</a>
+    </div>
+  </div>
+  </div>
+</form>
+</center>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- Large modal -->
+
+<div class="modal fade bd-example-modal-lg2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+   
+<center>
+  <h1>Sign-Up  As</h1>
+  </center>
+<br><br>
+
+<center>
+<form>
+    <div class="container mt-5 mb-5 ml-5 mr-5">
+ <div class="row">
+
+    <div class="col">
+<a href="{% url 'signup_doctor' %}">
+<img  alt="doctor" src="{% static 'homepage/doctor.png' %}"  class="img">
+</a>
+    </div>
+
+    <div class="col">
+<a href="{% url 'signup_patient' %}">
+<img  alt="patient" src="{% static 'homepage/patient.png' %}"  class="img">
+</a>
+    </div>
+  </div>
+  </div>
+</form>
+</center>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<br><br><br><br>
+<center><h2>Our Doctors</h2></center>
+<div class="row mt-5 mb-5">
+    <div class="col">
+        <div class="card bg-dark">
+            <div class="card-body text-center">
+                <h5 class="card-title text-light">Dr. ADU POKU </h5>
+                <img  alt="admin" src="{% static 'homepage/s74.jpg' %}" width="300" height="300" class="rounded-right rounded-left">
+                  <hr>
+                <p class="card-text text-light">Ward No-12, UENR CLINIC, 0550877201</p>
+                
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card bg-dark">
+            <div class="card-body text-center">
+                <h5 class="card-title text-light">Dr. MENSAH PAUL </h5>
+                <img  alt="admin" src="{% static 'homepage/c41.jpg' %}" width="300" height="300" class="rounded-right rounded-left">
+                <hr>
+                <p class="card-text text-light">JayTown, Ward Road, 0222038484</p>
+                
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card bg-dark">
+            <div class="card-body text-center">
+                <h5 class="card-title text-light">DR. FAIZA MAHMOOD</h5>
+                <img  alt="admin" src="{% static 'homepage/s73.jpg' %}" width="300" height="300" class="rourounded-right rounded-leftnded">
+                <hr>
+                <p class="card-text text-light">Sunyani Clinic, Hawa Sarak, 0200302019.</p>
+                
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+<br><br><br><br>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+<div class="card text-center">
+    <div class="card-header">
+      DPDRS
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">jammespolkuudery@gmail.com</h5>
+      <p class="card-text">UNIVERSITY OF ENERGY AND NATURAL RESOURCES</p>
+      <img src="{% static 'homepage/uenrlogo.jpeg' %}" width="60" height="60" >
+    </div>
+    <div class="card-footer text-muted">
+      Copyright © 2023 Disease Prediction and Drug Recommendation System. All rights reserved.
+    </div>
+</div>
+ 
+
+
+
+
+
+</div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+    
+
+
+
+
+    
+{% endblock %}

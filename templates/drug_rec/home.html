@@ -1,0 +1,82 @@
+{% extends 'drug_rec/base.html' %}
+
+{% block body %}
+  
+<div class="container mt-5">
+    <h3 class="text-center">Enter Patients Information</h2>
+    <form action="" method="POST">
+        <div class="form-group">
+        {% csrf_token %}
+
+        <div class="form-group">
+          <label for="gender">Gender</label>
+          <select class="form-control" id="gender" name="gender">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+          </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="age">Age</label>
+        <select class="form-control" id="age" name="age">
+            <option value="">Select Age</option>
+            {% for age_option in age_options %}
+                <option value="{{ age_option }}">{{ age_option }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    
+      
+      
+      <div class="form-group">
+          <label for="disease">Disease</label>
+          <select class="form-control" id="disease" name="disease">
+              <option value="">Select Disease</option>
+              <option value="Acne">Acne</option>
+              <option value="Allergy">Allergy</option>
+              <option value="Diabetes">Diabetes</option>
+              <option value="Fungal infection">Fungal infection</option>
+              <option value="Urinary tract infection">Urinary tract infection</option>
+              <option value="Malaria">Malaria</option>
+              <option value="Migraine">Migraine</option>
+              <option value="Hepatitis B">Hepatitis B</option>
+              <option value="AIDS">AIDS</option>
+          </select>
+      </div>
+      
+
+        <button type="submit" class="btn btn-primary mt-3">Recommend Drug</button> 
+
+    </div>
+
+    </form>
+
+    <table class="table mt-5 table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Gender</th>
+            <th scope="col">Age</th>
+            <th scope="col">Disease</th>
+            <th scope="col">Drug Prescribed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>  {{ gender }}</td>
+            <td>   {{ age }} </td>
+            <td> {{ disease }} </td>
+            <td> {{ prediction }} {{ status }} </td>
+          </tr>
+        </tbody>
+    </table>
+
+
+
+</div>
+
+<a href="{% url 'doctor_ui' %}"><button type="Button" class="btn btn-secondary mt-3">Back </button></a> 
+
+
+
+{% endblock %}
+
