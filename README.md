@@ -11,7 +11,15 @@ A small Django web app that demonstrates disease prediction and basic doctor/pat
 
 ## Demo screenshots
 
-![Home](/screenshots/Capture1.PNG)
+### Screenshots
+
+Below are the UI screenshots from the `screenshots/` folder. Click images to view the full-size version on GitHub.
+
+[![Capture1](/screenshots/Capture1.PNG)](/screenshots/Capture1.PNG)
+[![Capture2](/screenshots/Capture2.PNG)](/screenshots/Capture2.PNG)
+[![Capture3](/screenshots/Capture3.PNG)](/screenshots/Capture3.PNG)
+[![Capture4](/screenshots/Capture4.PNG)](/screenshots/Capture4.PNG)
+[![Capture5](/screenshots/Capture5.PNG)](/screenshots/Capture5.PNG)
 
 [//]: # (Main README for the Disease Prediction project)
 
