@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Disease Prediction (Django + ML)
 
 A small Django web app that demonstrates disease prediction and basic doctor/patient features using a scikit-learn model.
@@ -139,3 +140,7 @@ If you'd like I can now:
 - Initialize git and push to a remote if you provide the remote URL.
 
 Tell me which next step to do.
+=======
+# Disease_Prediction
+A Django-based machine learning web app for disease prediction and drug recommendation using trained classification models.
+>>>>>>> 29bbfbe0fd2e47468bf17879e7bf591f5b72f3bc
