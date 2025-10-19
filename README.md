@@ -46,6 +46,8 @@ The repository contains a companion seminar paper ("Seminar Paper.pdf", author: 
 
 - Results: Reported experiments indicate high accuracy and strong precision/recall across the tested models, supporting the feasibility of automated disease prediction and drug recommendation from structured symptom records.
 
+	![Model results](/screenshots/results.png)
+
 - Recommendation & notes: The paper recommends integrating such a system into clinical workflows with care for data privacy, model interpretability, and ethical considerations. Authors advise further work on additional algorithms and deployment safeguards.
 
 ## What you'll find in this repository
